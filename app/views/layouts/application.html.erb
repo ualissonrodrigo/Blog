@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Blog do Ualisson Rodrigo</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_pack_tag 'application', media: 'all' %>
+    <%= javascript_pack_tag 'application' %>
+  </head>
+
+  <body>
+    <div class="bg-primary text-center text-white mb-4 p-4">
+      <%= link_to root_path, class: 'text-white' do %>
+        <h1 class'display-4'>Blog do Ualisson Rodrigo</h1>
+      <% end %>
+      <div class='lead'>
+          Óla, aqui vc encontrara artigos sobre programação, tecnologia e carreira
+      </div>
+    </div>
+    <div class='container'>
+      <% flash.each do |type, message| %>
+        <div class="alert alert-<%= type == 'alert' ? 'danger' : 'success' %> alert-dismissible fade show" role="alert">
+          <%= message %>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+            <span arial-hidden="true">&times;<span>
+          </button>
+        </div>
+      <% end %>
+      
+      <%= yield %>
+    </div>
+    <footer class="bg-primary text-white text-center mt-5 p-4">
+          copyright @ Ualisson Rodrigo <%= Date.current.year %>.
+    </footer>
+  </body>
+</html>
